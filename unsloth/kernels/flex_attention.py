@@ -110,6 +110,7 @@ try:
         ) -> Tensor:
             bs, num_heads, q_len, head_dim = query.shape
             _, _, kv_len, _ = key.shape
+            print("flex attention wrapper called!")
 
             if self.bs is not None:
                 assert bs == self.bs and num_heads == self.num_heads, \
