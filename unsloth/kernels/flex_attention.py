@@ -244,7 +244,7 @@ else:
         s = self.config.query_pre_attn_scalar
         t = self.config.attn_logit_softcapping
         fx = flex_attention(s, t)
-        A = fx(query = Q, key = K, value = V, mask_mod = causal_mask)
+        A = fx(query = Q, key = K, value = V, mask_mod = mask_mod)
         A = A.transpose(1, 2).contiguous()
         A = A.reshape(bsz, q_len, n_heads*head_dim)
         return A
